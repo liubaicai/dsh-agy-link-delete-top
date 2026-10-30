@@ -1,0 +1,57 @@
+{
+  "name": "dsh-agy-link-delete-top",
+  "version": "0.1.0",
+  "description": "隐藏 DeepSeek Harness 会话顶部的 AGY 账号标识，保留原插件功能。",
+  "type": "module",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./src/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "files": [
+    "src",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "docs"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/index.js && node --check src/client.js",
+    "prepack": "npm run check && npm test"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "agy",
+    "antigravity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/liubaicai/dsh-agy-link-delete-top.git"
+  },
+  "homepage": "https://github.com/liubaicai/dsh-agy-link-delete-top#readme",
+  "bugs": {
+    "url": "https://github.com/liubaicai/dsh-agy-link-delete-top/issues"
+  }
+}
