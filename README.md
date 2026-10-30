@@ -31,17 +31,57 @@ dsh-agy-link 的客户端在 `conversation.session.header.actions` 插槽注册�
 
 ## 安装
 
-从 [Releases](https://github.com/liubaicai/dsh-agy-link-delete-top/releases) 下载 `dsh-agy-link-delete-top-<version>.tgz`。
+### 通过 GitHub 地址安装（推荐）
 
-桌面端（Electron 应用）的插件由应用管理：将 tgz 放入 `~/.dsh/plugins/`，在 设置 → 插件 中安装本地包。
+1. 在 DSH 中打开 **设置 → 插件 → 添加插件 → 安装第三方插件**。
+2. 粘贴以下仓库地址，然后按界面提示确认安装：
 
-命令行管理的配置（web、headless 等）：
+   ```text
+   https://github.com/liubaicai/dsh-agy-link-delete-top
+   ```
 
-```bash
-dsh plugin --profile web add /path/to/dsh-agy-link-delete-top-0.1.0.tgz
+3. 安装完成后刷新页面；如果 DSH 提示需要重启，请按提示重启。
+
+上面的地址安装仓库默认分支的代码。若要固定安装已发布的 `v0.1.0`，改填：
+
+```text
+https://github.com/liubaicai/dsh-agy-link-delete-top#v0.1.0
 ```
 
-安装后刷新 DSH 页面即可生效。
+也支持 GitHub 简写：
+
+```text
+github:liubaicai/dsh-agy-link-delete-top#v0.1.0
+```
+
+本仓库是公开仓库，HTTPS 地址不需要配置个人 SSH 密钥。安装 Git 仓库需要运行 DSH 的机器安装 Git，并能访问 GitHub；更换 npm 镜像不会解决 GitHub 的连接问题。遇到 Git 连接或构建问题，可以改用下面的发布包直链。
+
+### 通过发布包安装
+
+在同一个安装输入框中粘贴以下地址，可以直接安装 `v0.1.0` 发布包，无需手动下载：
+
+```text
+https://github.com/liubaicai/dsh-agy-link-delete-top/releases/download/v0.1.0/dsh-agy-link-delete-top-0.1.0.tgz
+```
+
+也可以从 [Releases](https://github.com/liubaicai/dsh-agy-link-delete-top/releases) 下载发布包，再在输入框中填写它在运行 DSH 的机器上的**绝对路径**；不必放到特定目录。
+
+### 命令行安装（非桌面端 profile）
+
+命令行管理的配置（例如 `web`）可以运行：
+
+```bash
+# 从 GitHub 固定安装 v0.1.0
+dsh plugin --profile web add "github:liubaicai/dsh-agy-link-delete-top#v0.1.0"
+
+# 或从 GitHub 安装默认分支
+dsh plugin --profile web add "github:liubaicai/dsh-agy-link-delete-top"
+
+# 或安装发布包直链
+dsh plugin --profile web add "https://github.com/liubaicai/dsh-agy-link-delete-top/releases/download/v0.1.0/dsh-agy-link-delete-top-0.1.0.tgz"
+```
+
+以上是三种替代方式，任选一种即可。将 `web` 替换为实际使用的 profile。桌面端的 `desktop` profile 由 Electron 应用管理，不支持用这条 CLI 命令安装，请使用上面的图形界面入口。安装完成后刷新页面，必要时按提示重启 DSH。
 
 ## 恢复显示
 
